@@ -19,6 +19,24 @@ If you don't like sloc cloc and code feel free to use the name `Succinct Code Co
 
 Licensed under MIT licence.
 
+## Table of Contents
+
+- [Support](#support)
+- [Install](#install)
+- [Background](#background)
+- [Pitch](#pitch)
+- [Usage](#usage)
+- [Complexity Estimates](#complexity-estimates)
+- [Unique Lines of Code (ULOC)](#unique-lines-of-code-uloc)
+- [COCOMO](#cocomo)
+- [Output Formats](#output-formats)
+- [Performance](#performance)
+- [Development](#development)
+- [Adding/Modifying Languages](#addingmodifying-languages)
+- [Issues](#issues)
+- [Badges (beta)](#badges-beta)
+- [Language Support](LANGUAGES.md)
+
 ### Support
 
 Using `scc` commercially? If you want priority support for `scc` you can purchase a years worth https://boyter.gumroad.com/l/kgenuv which entitles you to priority direct email support from the developer.
@@ -267,7 +285,7 @@ Flags:
       --no-gitmodule                       disables .gitmodules file logic
       --no-hborder                         remove horizontal borders between sections
       --no-ignore                          disables .ignore file logic
-      --no-large                           ignore files over certain byte and line size set by max-line-count and max-byte-count
+      --no-large                           ignore files over certain byte and line size set by large-line-count and large-byte-count
       --no-min                             ignore minified files in output (implies --min)
       --no-min-gen                         ignore minified or generated files in output (implies --min-gen)
       --no-scc-ignore                      disables .sccignore file logic
@@ -1042,13 +1060,28 @@ Valid values include `code, blanks, lines, comments, cocomo` and examples of the
 [![Scc Count Badge](https://sloc.xyz/github/boyter/scc/?category=comments)](https://github.com/boyter/scc/)
 [![Scc Count Badge](https://sloc.xyz/github/boyter/scc/?category=cocomo)](https://github.com/boyter/scc/)
 
-
 For `cocomo` you can also set the `avg-wage` value similar to `scc` itself. For example,
 
 https://sloc.xyz/github/boyter/scc/?category=cocomo&avg-wage=1
 https://sloc.xyz/github/boyter/scc/?category=cocomo&avg-wage=100000 
 
 Note that the avg-wage value must be a positive integer otherwise it will revert back to the default value of 56286.
+
+You can also configure the look and feel of the bad using the following parameters,
+
+ - ?lower=true will lower the title text, so "Total lines" would be "total lines"
+
+The below can control the colours of shadows, fonts and badges
+
+ - ?font-color=fff
+ - ?font-shadow-color=010101
+ - ?top-shadow-accent-color=bbb
+ - ?title-bg-color=555
+ - ?badge-bg-color=4c1
+
+An example of using some of these parameters to produce an admittedly ugly result
+
+[![Scc Count Badge](https://sloc.xyz/github/boyter/scc?font-color=ff0000&badge-bg-color=0000ff&lower=true)](https://github.com/boyter/scc/)
 
 *NB* it may not work for VERY large repositories (has been tested on Apache hadoop/spark without issue).
 
@@ -1063,7 +1096,7 @@ You can find the source code for badges in the repository at https://github.com/
 
 ### Languages
 
-List of supported languages. The master version of `scc` supports 239 languages at last count. Note that this is always assumed that you built from master, and it might trail behind what is actually supported. To see what your version of `scc` supports run `scc --languages`
+List of supported languages. The master version of `scc` supports 322 languages at last count. Note that this is always assumed that you built from master, and it might trail behind what is actually supported. To see what your version of `scc` supports run `scc --languages`
 
 [Click here to view all languages supported by master](LANGUAGES.md)
 
